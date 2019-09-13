@@ -1,7 +1,0 @@
-{
-    "records": [],
-    "resources": [{
-        "location": ".WebResources/docs.json",
-        "type": "generated"
-    }]
-}

@@ -1,0 +1,113 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+
+                xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+                <modelVersion>4.0.0</modelVersion>
+
+                <groupId>tibco.bw.ear</groupId>
+
+                <artifactId>HelloWord</artifactId>
+
+                <packaging>bwear</packaging>
+
+                <name>HelloWord EAR</name>
+
+                <description>This project contains the BusinessWorks source code of the TIB Adapter Service of NOM </description>
+
+ 
+
+                <properties>
+
+                                <relativeParentBaseDir>../../../..</relativeParentBaseDir>
+
+                </properties>
+
+ 
+
+                <parent>
+
+                                <relativePath>../../../../pom.xml</relativePath>
+
+                                <groupId>tibco.bw.project</groupId>
+
+                                <artifactId>HelloWord</artifactId>
+
+                                <version>1.0-SNAPSHOT</version>
+
+                </parent>
+
+ 
+
+                <build>
+
+                                <directory>${relativeParentBaseDir}/target</directory>
+
+                                <outputDirectory>${relativeParentBaseDir}/target/EAR</outputDirectory>
+
+                                <plugins>
+
+                                                <plugin>
+
+                                                                <groupId>com.tibco.maven.plugins</groupId>
+
+                                                                <artifactId>bwfactory-maven-plugin</artifactId>
+
+                                                                <!--version>1.5.0</version-->
+
+                                                                <version>${bwfactory-maven-plugin.version}</version>
+
+                                                                <extensions>true</extensions>
+
+                                                                <configuration>
+
+                                                                                <uri>/_Archives/${project.artifactId}.archive</uri>
+
+                                                                </configuration>
+
+                                                </plugin>
+
+                                                <plugin>
+
+                                                                <groupId>org.codehaus.mojo</groupId>
+
+                                                                <artifactId>build-helper-maven-plugin</artifactId>
+
+                                                                <configuration>
+
+                                                                                <artifacts>
+
+                                                                                                <artifact>
+
+                                                                                                                <file>${project.build.outputDirectory}/${project.artifactId}.ear</file>
+
+                                                                                                                <type>ear</type>
+
+                                                                                                </artifact>
+
+                                                                                </artifacts>
+
+                                                                </configuration>
+
+                                                </plugin>
+
+                                                <plugin>
+
+                                                                <artifactId>maven-clean-plugin</artifactId>
+
+                                                                <version>2.4.1</version>
+
+                                                                <configuration>
+
+                                                                                <skip>true</skip>
+
+                                                                </configuration>
+
+                                                </plugin>
+
+                                </plugins>
+
+                </build>
+
+ 
+
+</project>
